@@ -5,6 +5,7 @@ using System.Web;
 
 namespace KendoGrid
 {
+    //IdTitle
     public class IdTitle
     {
         public int Id { get; set; }
