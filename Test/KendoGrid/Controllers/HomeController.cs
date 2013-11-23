@@ -23,6 +23,12 @@ namespace KendoGrid.Controllers
             return JSON(selectOptions);
         }
 
+        [HttpGet]
+        public JsonResult CurrentTimeGet()
+        {
+            return JSON(new object[] { DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second, DateTime.Now.Millisecond });
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";
