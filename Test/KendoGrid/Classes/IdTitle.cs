@@ -16,5 +16,6 @@ namespace KendoGrid
     {
         public IdTitle Id { get; set; }
         public string Description { get; set; }
+        public string ShortDescription { get; set; }
     }
 }
