@@ -23,6 +23,10 @@
 <select multiple="multiple" id="mySelect">
 </select>
 
+<span id="timeBox">
+</span>
+<input type="button" onclick="getTime();" value="Request Server Time" style="display:inline"/>
+
 @section JScript{
     <script type="text/javascript">
 
@@ -43,6 +47,12 @@
  
         function parametersGet(id) {
             return {id: id/*id из параметра*/, Title: $("#myTextBox").val(), images: [{imgSrc: $("#image").attr("src")}], description: $() };
+        }
+
+        function getTime() {
+            $.get("@(Url.Action("CurrentTimeGet", new {controller = "Home"}))", {/*parameters: parametersGet(3)*/ }, function (data) {
+                $("#timeBox").append(data);
+            }, 'json');
         }
 
         console.log("0");
