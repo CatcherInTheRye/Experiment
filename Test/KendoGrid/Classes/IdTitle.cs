@@ -12,7 +12,7 @@ namespace KendoGrid
         public string Description { get; set; }
     }
 
-    public class DescriptionTitle : IdTitle
+    public class IdTitleDescription : IdTitle
     {
         public string Description { get; set; }
         public string ShortDescription { get; set; }
