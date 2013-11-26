@@ -23,34 +23,35 @@
 <select multiple="multiple" id="mySelect">
 </select>
 
-<span id="timeBox">
-</span>
-<input type="button" onclick="getTime();" value="Request Server Time" style="display:inline"/>
+<span id="timeBox"></span>
+<input type="button" onclick="getTime();" value="Request Server Time" style="display: inline" />
+<a href="@(Url.Action("StrongTypedView", new { controller = "Home" }))"><strong>Strong typed view</strong></a>
 
 @section JScript{
     <script type="text/javascript">
 
+
         $(document).ready(function () {
 
-            $.get("@(Url.Action("SelectOptionsGet", new {controller = "Home"}))", {/*parameters: parametersGet(3)*/ }, function (data) {
+            $.get("@(Url.Action("SelectOptionsGet", new { controller = "Home" }))", {/*parameters: parametersGet(3)*/ }, function (data) {
                 $.each(data, function (index, value) {
                     $("#mySelect").append('<option value="' + value.Id + '">' + value.Title + '</option>');
                     console.log("Second");
                 });
                 console.log("Third");
-                
+
                 var mySelect = $("#mySelect").kendoMultiSelect().data("kendoMultiSelect");
             }, 'json');
 
             console.log("First");
         });
- 
+
         function parametersGet(id) {
-            return {id: id/*id из параметра*/, Title: $("#myTextBox").val(), images: [{imgSrc: $("#image").attr("src")}], description: $() };
+            return { id: id/*id из параметра*/, Title: $("#myTextBox").val(), images: [{ imgSrc: $("#image").attr("src") }], description: $() };
         }
 
         function getTime() {
-            $.get("@(Url.Action("CurrentTimeGet", new {controller = "Home"}))", {/*parameters: parametersGet(3)*/ }, function (data) {
+            $.get("@(Url.Action("CurrentTimeGet", new { controller = "Home" }))", {/*parameters: parametersGet(3)*/ }, function (data) {
                 $("#timeBox").append(data);
             }, 'json');
         }

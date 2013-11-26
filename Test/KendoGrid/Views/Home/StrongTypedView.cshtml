@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "StrongTypedView";
+}
+@model KendoGrid.IdTitleDescription
+
+<h2>StrongTypedView</h2>
+
+@*@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "У тебя ошибки.")*@
+    @Html.HiddenFor(p => p.Id)
+    <p>
+        @Html.LabelFor(p => p.Title)
+        @Html.TextBoxFor(p => p.Title)
+    </p>
+    <p>
+        @Html.LabelFor(p => p.Description)
+        @Html.TextAreaFor(p => p.Description)
+    </p>
+    <p>
+        @Html.LabelFor(p => p.ShortDescription)
+        <textarea rows="2" name="ShortDescription" id="ShortDescription" cols="20">@Model.ShortDescription</textarea>
+        @*@Html.TextAreaFor(p => p.ShortDescription)*@
+    </p>
+    <p>
+        <input id="save" type="button" value="Сохранить" />
+    </p>
+
+
+@section JScript
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#save").click(function() {
+                $.post("@(Url.Action("StrongTypedViewSave", new { controller = "Home" }))", {
+                    id: $("#Id").val(),
+                    title: $("#Title").val(),
+                    description: $("#Description").val(),
+                    shortDescription: $("#ShortDescription").val()
+                }, function (data) {
+                    console.log(data);
+                }, 'json');
+            });
+            
+            function getStrongTyped() {
+                var result = {
+                    Id: $("#Id").val(),
+                    Title: $("#Title").val(),
+                    Description: $("#Description").val(),
+                    ShortDescription: $("#ShortDescription").val()
+                };
+                console.log(result);
+                return result;
+            }
+        });
+    </script>
+}
+

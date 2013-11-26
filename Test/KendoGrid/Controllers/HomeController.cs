@@ -36,11 +36,59 @@ namespace KendoGrid.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Contact(IdTitle model)
+        {
+            ViewBag.Message = "Your contact page.";
+            bool validationOK = false;
+
+            if (validationOK)
+            {
+                return View("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        #region Strong Typed View
+
+        [HttpGet]
+        public ActionResult StrongTypedView()
+        {
+            IdTitleDescription idTitleDescription = new IdTitleDescription
+                                                        {
+                                                            Id = 1,
+                                                            Title = "Strong typed description",
+                                                            Description = "desc"
+                                                        };
+            return View(idTitleDescription);
+        }
+
+        [HttpPost]
+        public ActionResult StrongTypedViewSave(int id, string title, string description, string shortDescription)
+        {
+            IdTitleDescription form = new IdTitleDescription
+                                          {
+                                              Id = id,
+                                              Title = title,
+                                              Description = description,
+                                              ShortDescription = shortDescription
+                                          };
+            form.ShortDescription = "Сохранено. УРА!";
+            form.Title = "Fucking saved.";
+            return View("StrongTypedView", form);
+        }
+
+        #endregion Strong Typed View
     }
 }
