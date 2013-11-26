@@ -87,3 +87,6 @@ G:\Programing\Store\Test\KendoGrid\bin\zh-Hant\System.Spatial.resources.dll
 G:\Programing\Store\Test\KendoGrid\obj\Debug\KendoGrid.csprojResolveAssemblyReference.cache
 G:\Programing\Store\Test\KendoGrid\obj\Debug\KendoGrid.dll
 G:\Programing\Store\Test\KendoGrid\obj\Debug\KendoGrid.pdb
+G:\Programing\Store\Experiment\Experiment\Test\KendoGrid\obj\Debug\KendoGrid.csprojResolveAssemblyReference.cache
+G:\Programing\Store\Experiment\Experiment\Test\KendoGrid\obj\Debug\KendoGrid.dll
+G:\Programing\Store\Experiment\Experiment\Test\KendoGrid\obj\Debug\KendoGrid.pdb
